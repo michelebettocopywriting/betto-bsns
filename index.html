@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Betto Copywriting — Copywriter Strategico</title>
+  <meta name="description" content="Copywriter strategico: strategie, processi e copy che convertono. Sales page, landing, email, VSL e ads. Prenota una call di analisi gratuita." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1115;
+      --panel:#141821;
+      --ink:#e6e9ef;
+      --muted:#9aa3b2;
+      --accent:#4f8cff;
+      --accent-ink:#0b1220;
+      --line:#212635;
+      --success:#7bd389;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(15,17,21,.95),rgba(15,17,21,.75));backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .brand img{height:32px;width:auto}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid transparent;transition:.25s ease}
+    .btn.primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 8px 20px rgba(79,140,255,.25)}
+    .btn.primary:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(79,140,255,.33)}
+    .btn.ghost{border-color:var(--line);color:var(--ink);background:transparent}
+    .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+    h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:12px 0 16px}
+    h2{font-size:clamp(26px,4vw,38px);margin:0 0 12px}
+    p{color:var(--muted)}
+    section{padding:64px 0;border-top:1px solid var(--line)}
+    footer{padding:48px 0;border-top:1px solid var(--line);color:var(--muted)}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="Betto Copywriting logo">
+        <span>Betto Copywriting</span>
+      </div>
+      <nav style="display:flex;gap:18px;align-items:center">
+        <a href="#about">About</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#contatti" class="btn primary">Prenota una call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="container">
+        <h1>Sviluppo strategie che vendono. Il copy è solo la punta dell’iceberg.</h1>
+        <p>Non mi limito a scrivere testi: costruisco strategie di comunicazione che usano il copy come leva per vendere di più, con meno sprechi.</p>
+        <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" class="btn primary" target="_blank">Prenota una call gratuita</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center">
+        <div>
+          <h2>Chi sono</h2>
+          <p>Mi chiamo <strong>Betto Michele</strong> e sono un copywriter strategico. Aiuto aziende e professionisti a trasformare la loro comunicazione in un motore di conversione. Unisco analisi, strategia e copywriting per creare messaggi che funzionano davvero.</p>
+        </div>
+        <div>
+          <img src="portrait.jpg" alt="Michele Betto, copywriter strategico" style="border-radius:12px;border:1px solid var(--line)">
+        </div>
+      </div>
+    </section>
+
+    <section id="servizi">
+      <div class="container">
+        <h2>Cosa faccio</h2>
+        <p>Progetto strategie e copy che generano risultati concreti:</p>
+        <ul>
+          <li>Sales page e landing page che convertono</li>
+          <li>Email marketing e campagne pubblicitarie</li>
+          <li>VSL e script orientati alla vendita</li>
+          <li>Consulenza strategica e supervisione contenuti AI</li>
+        </ul>
+        <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" class="btn primary" target="_blank">Parliamone</a>
+      </div>
+    </section>
+
+    <section id="contatti">
+      <div class="container">
+        <h2>Contatti</h2>
+        <p><strong>Email:</strong> <a href="mailto:michelebetto.copy@gmail.com">michelebetto.copy@gmail.com</a></p>
+        <p><strong>Telefono:</strong> <a href="tel:+393482436986">+39 348 243 6986</a></p>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/betto_bsns/" target="_blank">@betto_bsns</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <span>© <script>document.write(new Date().getFullYear())</script> Betto Copywriting</span>
+      <span>Realizzato con strategia, non con frasi a caso.</span>
+    </div>
+  </footer>
+</body>
+</html>
