@@ -22,7 +22,6 @@
       --accent:#4f8cff;
       --accent-ink:#0b1220;
       --line:#212635;
-      --sand:#b6b2a5; /* secondo accento tenue */
       --maxw:1100px;
       --space:24px;
     }
@@ -48,7 +47,12 @@
     .cta-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 
     /* Sections */
-    section{padding:80px 0;border-top:1px solid var(--line)}
+    section{padding:80px 0;border-top:1px solid var(--line);position:relative}
+    section::after{
+      content:""; position:absolute; left:0; right:0; bottom:0;
+      height:1px; background:linear-gradient(90deg, transparent, #212635, transparent);
+      opacity:.7;
+    }
     h1{font-size:clamp(36px,6vw,58px);line-height:1.05;margin:0 0 14px}
     h2{font-size:clamp(28px,4.2vw,40px);margin:0 0 14px}
     h3{font-size:clamp(18px,2.7vw,22px);margin:0 0 10px;color:var(--ink)}
@@ -62,19 +66,27 @@
     .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
     .ph{border-radius:16px;border:1px solid var(--line);overflow:hidden}
 
-    /* Hero background */
+    /* Hero background + micro-animation */
     .hero-wrap{position:relative;overflow:hidden}
     .hero-noise{position:absolute;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:soft-light;background-image:url('assets/noise.webp');background-size:600px 600px}
     .hero-grad{position:absolute;inset:-20% -10% auto -10%;height:120%;background:
       radial-gradient(1200px 600px at 0% 0%, rgba(79,140,255,.10), transparent 60%),
       radial-gradient(800px 400px at 100% 10%, rgba(79,140,255,.06), transparent 60%);pointer-events:none}
+    .hero-stack{display:flex;flex-direction:column;gap:12px;max-width:780px}
+
+    @keyframes floaty { 0%{transform:translate3d(0,0,0)} 50%{transform:translate3d(0,-10px,0)} 100%{transform:translate3d(0,0,0)} }
+    .hero-grad{animation:floaty 14s ease-in-out infinite}
+    @keyframes pulse { 0%,100%{box-shadow:0 10px 26px rgba(79,140,255,.22)} 50%{box-shadow:0 14px 34px rgba(79,140,255,.35)} }
+    .glow-cta{animation:pulse 3s ease-in-out infinite}
+
+    /* Portrait frame premium */
+    .portrait-frame{padding:2px;border-radius:18px;background:linear-gradient(135deg, rgba(79,140,255,.4), rgba(79,140,255,0));display:inline-block}
 
     /* Cards servizi */
     .cards{display:grid;gap:16px;margin-top:18px}
     @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
     .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s ease;display:flex;flex-direction:column;gap:8px}
-    .card:hover{transform:translateY(-2px);border-color:#2a3350}
-    .ico{width:28px;height:28px;opacity:.85}
+    .card:hover{transform:translateY(-2px);border-color:#2a3350;background:linear-gradient(180deg, rgba(255,255,255,.01), transparent), var(--panel)}
     .m-cta{color:var(--accent);font-weight:700;margin-top:auto}
 
     /* FAQ / Obiezioni */
@@ -133,32 +145,27 @@
   </header>
 
   <main>
-    <!-- HOME (copy invariato) -->
+    <!-- HOME (foto rimossa, testo invariato) -->
     <section id="home" class="hero-wrap">
       <div class="hero-grad"></div>
       <div class="hero-noise"></div>
       <div class="container" style="position:relative">
-        <div class="grid-2">
-          <div>
-            <h1>Sviluppo strategie che vendono. Il copy è solo la punta dell’iceberg.</h1>
-            <h3>Non mi limito a scrivere testi: costruisco strategie di comunicazione che usano il copy come leva per vendere di più, con meno sprechi.</h3>
-            <p><strong>Le mie strategie collegano creatività e analisi</strong> per creare un impatto concreto: più conversioni, meno spreco di budget e una comunicazione che funziona davvero.</p>
-            <div class="cta-bar">
-              <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary">Prenota una call gratuita di analisi</a>
-              <a href="#servizi" class="btn. ghost btn ghost">Scopri come lavoro →</a>
-            </div>
-            <p style="margin-top:14px">Il copy è cambiato. Oggi non serve solo saper scrivere: serve capire come il processo di vendita si muove, come il contenuto e la strategia lavorano insieme.<br>
-            Io sono un <strong>copywriter strategico</strong>: supervisiono, gestisco e coordino la comunicazione con una logica di performance.<br>
-            L’AI può generare parole. Io faccio in modo che quelle parole portino <strong>risultati veri</strong>.</p>
+        <div class="hero-stack">
+          <h1>Sviluppo strategie che vendono. Il copy è solo la punta dell’iceberg.</h1>
+          <h3>Non mi limito a scrivere testi: costruisco strategie di comunicazione che usano il copy come leva per vendere di più, con meno sprechi.</h3>
+          <p><strong>Le mie strategie collegano creatività e analisi</strong> per creare un impatto concreto: più conversioni, meno spreco di budget e una comunicazione che funziona davvero.</p>
+          <div class="cta-bar">
+            <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary glow-cta">Prenota una call gratuita di analisi</a>
+            <a href="#servizi" class="btn ghost">Scopri come lavoro →</a>
           </div>
-          <div>
-            <img src="portrait.jpg" alt="Michele Betto, Copywriter Strategico" loading="lazy" class="ph">
-          </div>
+          <p style="margin-top:14px">Il copy è cambiato. Oggi non serve solo saper scrivere: serve capire come il processo di vendita si muove, come il contenuto e la strategia lavorano insieme.<br>
+          Io sono un <strong>copywriter strategico</strong>: supervisiono, gestisco e coordino la comunicazione con una logica di performance.<br>
+          L’AI può generare parole. Io faccio in modo che quelle parole portino <strong>risultati veri</strong>.</p>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT (copy invariato) -->
+    <!-- ABOUT (foto solo qui) -->
     <section id="about">
       <div class="container grid-2" style="align-items:center">
         <div>
@@ -170,32 +177,29 @@
           Scrivo, sì. Ma soprattutto <strong>penso come un marketer e ragiono come un venditore.</strong></p>
           <a href="#servizi" class="btn primary">Scopri il mio approccio →</a>
         </div>
-        <div>
+        <div class="portrait-frame">
           <img src="portrait.jpg" alt="Michele Betto, Copywriter Strategico" loading="lazy" class="ph">
         </div>
       </div>
     </section>
 
-    <!-- SERVIZI (copy invariato, resa in card) -->
+    <!-- SERVIZI (icone tolte, copy invariato) -->
     <section id="servizi">
       <div class="container">
         <h2>Non vendo testi. Progetto strategie di vendita basate sulle parole.</h2>
         <h4>Ogni progetto nasce da un’analisi: cosa blocca le tue conversioni e dove la comunicazione si inceppa.</h4>
         <div class="cards">
           <article class="card">
-            <img src="assets/strategy.svg" alt="" class="ico" loading="lazy">
             <h3>Strategia di comunicazione e supervisione dei contenuti</h3>
             <p>Definisco il messaggio e coordino la produzione (AI + team marketing) per coerenza e performance.</p>
             <a href="#contatti" class="m-cta">Capisci come funziona →</a>
           </article>
           <article class="card">
-            <img src="assets/copy.svg" alt="" class="ico" loading="lazy">
             <h3>Copywriting strategico</h3>
             <p>Scrivo copy ad alto impatto per <em>sales page, landing page, email marketing, VSL e ads.</em></p>
             <a href="#contatti" class="m-cta">Parliamone →</a>
           </article>
           <article class="card">
-            <img src="assets/funnel.svg" alt="" class="ico" loading="lazy">
             <h3>Ottimizzazione funnel e customer journey</h3>
             <p>Studio i punti critici, correggo la direzione e massimizzo la resa di ogni messaggio.</p>
             <a href="#contatti" class="m-cta">Ottimizza il percorso →</a>
@@ -207,7 +211,7 @@
       </div>
     </section>
 
-    <!-- GESTIONE OBIEZIONI (copy invariato, accordion) -->
+    <!-- GESTIONE OBIEZIONI (accordion) -->
     <section id="obiezioni">
       <div class="container">
         <h2>Prima che tu lo pensi…</h2>
@@ -235,7 +239,7 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO (copy invariato, griglia placeholder) -->
+    <!-- PORTFOLIO (placeholder) -->
     <section id="portfolio">
       <div class="container">
         <h2>Risultati, non teorie.</h2>
@@ -249,7 +253,7 @@
       </div>
     </section>
 
-    <!-- CONTATTI (copy invariato) -->
+    <!-- CONTATTI -->
     <section id="contatti">
       <div class="container">
         <h2>Parliamone.</h2>
