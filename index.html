@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* ====== Base Theme ====== */
     :root{
       --bg:#0f1115;
       --panel:#141821;
@@ -25,6 +24,7 @@
       --maxw:1100px;
       --space:24px;
     }
+
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
     img{max-width:100%;display:block}
@@ -37,93 +37,57 @@
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800}
     .brand img{height:28px;width:auto}
-    .nav a{opacity:.9}
-    .nav a:hover{opacity:1}
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid transparent;transition:.25s ease}
-    .btn.primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 10px 26px rgba(79,140,255,.22)}
-    .btn.primary:hover{transform:translateY(-1px);box-shadow:0 14px 32px rgba(79,140,255,.30)}
-    .btn.ghost{border-color:var(--line);color:var(--ink);background:transparent}
+    .btn.primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 0 15px rgba(79,140,255,.3)}
+    .btn.primary:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(79,140,255,.45)}
+    .btn.ghost{border:1px solid var(--line);color:var(--ink)}
     .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
     .cta-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 
     /* Sections */
-    section{padding:80px 0;border-top:1px solid var(--line);position:relative}
-    section::after{
-      content:""; position:absolute; left:0; right:0; bottom:0;
-      height:1px; background:linear-gradient(90deg, transparent, #212635, transparent);
-      opacity:.7;
-    }
+    section{padding:80px 0;border-top:1px solid var(--line)}
     h1{font-size:clamp(36px,6vw,58px);line-height:1.05;margin:0 0 14px}
     h2{font-size:clamp(28px,4.2vw,40px);margin:0 0 14px}
     h3{font-size:clamp(18px,2.7vw,22px);margin:0 0 10px;color:var(--ink)}
-    h4{margin:18px 0 8px}
 
-    /* Grids */
     .grid-2{display:grid;gap:32px}
     @media(min-width:980px){.grid-2{grid-template-columns:1.2fr .8fr}}
 
-    /* Panels & visuals */
-    .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
-    .ph{border-radius:16px;border:1px solid var(--line);overflow:hidden}
-
-    /* Hero background + micro-animation */
-    .hero-wrap{position:relative;overflow:hidden}
-    .hero-noise{position:absolute;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:soft-light;background-image:url('assets/noise.webp');background-size:600px 600px}
-    .hero-grad{position:absolute;inset:-20% -10% auto -10%;height:120%;background:
-      radial-gradient(1200px 600px at 0% 0%, rgba(79,140,255,.10), transparent 60%),
-      radial-gradient(800px 400px at 100% 10%, rgba(79,140,255,.06), transparent 60%);pointer-events:none}
-    .hero-stack{display:flex;flex-direction:column;gap:12px;max-width:780px}
-
-    @keyframes floaty { 0%{transform:translate3d(0,0,0)} 50%{transform:translate3d(0,-10px,0)} 100%{transform:translate3d(0,0,0)} }
-    .hero-grad{animation:floaty 14s ease-in-out infinite}
-    @keyframes pulse { 0%,100%{box-shadow:0 10px 26px rgba(79,140,255,.22)} 50%{box-shadow:0 14px 34px rgba(79,140,255,.35)} }
+    /* HERO SECTION */
+    .hero-wrap{position:relative;overflow:hidden;background:linear-gradient(145deg,#10121a 0%,#12141f 35%,#0e1320 100%)}
+    .hero-wrap::before{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(circle at 30% 30%, rgba(79,140,255,.12), transparent 70%),
+                 radial-gradient(circle at 70% 70%, rgba(79,140,255,.07), transparent 60%);
+      animation:floatbg 12s ease-in-out infinite alternate;
+    }
+    @keyframes floatbg {
+      0%{transform:translate(0,0)}
+      50%{transform:translate(-10px,10px)}
+      100%{transform:translate(0,0)}
+    }
+    .hero-stack{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;max-width:780px}
+    .glow-title{text-shadow:0 0 18px rgba(79,140,255,.3)}
     .glow-cta{animation:pulse 3s ease-in-out infinite}
+    @keyframes pulse {0%,100%{box-shadow:0 0 20px rgba(79,140,255,.25)}50%{box-shadow:0 0 30px rgba(79,140,255,.45)}}
 
-    /* Portrait frame premium */
+    /* About portrait */
     .portrait-frame{padding:2px;border-radius:18px;background:linear-gradient(135deg, rgba(79,140,255,.4), rgba(79,140,255,0));display:inline-block}
 
     /* Cards servizi */
     .cards{display:grid;gap:16px;margin-top:18px}
     @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
     .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s ease;display:flex;flex-direction:column;gap:8px}
-    .card:hover{transform:translateY(-2px);border-color:#2a3350;background:linear-gradient(180deg, rgba(255,255,255,.01), transparent), var(--panel)}
-    .m-cta{color:var(--accent);font-weight:700;margin-top:auto}
+    .card:hover{transform:translateY(-4px);border-color:var(--accent);background:linear-gradient(180deg, rgba(79,140,255,.08), transparent 60%), var(--panel)}
 
-    /* FAQ / Obiezioni */
-    .faq{display:grid;gap:12px;margin-top:18px}
-    .faq details{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
-    .faq summary{cursor:pointer;font-weight:700;list-style:none}
-    .faq summary::-webkit-details-marker{display:none}
-    .faq p{color:var(--muted);margin:10px 0 0}
-
-    /* Portfolio tiles */
-    .portfolio{display:grid;gap:16px}
-    @media(min-width:900px){.portfolio{grid-template-columns:repeat(3,1fr)}}
-    .tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;min-height:120px;display:flex;flex-direction:column;gap:8px}
+    /* Dopamina visiva sui titoli */
+    h2, h1:hover {color:var(--accent);transition:color .4s ease}
 
     /* Footer */
     footer{padding:48px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-    .foot-actions{display:flex;gap:10px;flex-wrap:wrap}
-    .pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px}
 
-    /* ===== Mobile polish ===== */
-    @media (max-width:380px){
-      h1{font-size:30px}
-      h2{font-size:22px}
-    }
-    @media(max-width:720px){
-      .nav nav{display:flex;gap:12px;flex-wrap:wrap}
-      .nav .btn.primary{padding:10px 14px}
-      .brand img{height:24px}
-    }
-    @media(max-width:640px){ .btn{width:100%;justify-content:center} }
-    @media(min-width:640px){ .cards{grid-template-columns:repeat(2,1fr)} }
-    @media(min-width:700px){ .portfolio{grid-template-columns:repeat(2,1fr)} }
-
-    section{padding:56px 0}
-    @media(min-width:900px){ section{padding:80px 0} }
-
-    @media (prefers-reduced-motion: reduce){ *{transition:none !important;animation:none !important} }
+    /* Responsive */
+    @media(max-width:720px){.grid-2{grid-template-columns:1fr}}
   </style>
 </head>
 
@@ -145,27 +109,25 @@
   </header>
 
   <main>
-    <!-- HOME (foto rimossa, testo invariato) -->
+    <!-- HOME -->
     <section id="home" class="hero-wrap">
-      <div class="hero-grad"></div>
-      <div class="hero-noise"></div>
-      <div class="container" style="position:relative">
+      <div class="container">
         <div class="hero-stack">
-          <h1>Sviluppo strategie che vendono. Il copy è solo la punta dell’iceberg.</h1>
+          <h1 class="glow-title">Sviluppo strategie che vendono. Il copy è solo la punta dell’iceberg.</h1>
           <h3>Non mi limito a scrivere testi: costruisco strategie di comunicazione che usano il copy come leva per vendere di più, con meno sprechi.</h3>
           <p><strong>Le mie strategie collegano creatività e analisi</strong> per creare un impatto concreto: più conversioni, meno spreco di budget e una comunicazione che funziona davvero.</p>
           <div class="cta-bar">
             <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary glow-cta">Prenota una call gratuita di analisi</a>
             <a href="#servizi" class="btn ghost">Scopri come lavoro →</a>
           </div>
-          <p style="margin-top:14px">Il copy è cambiato. Oggi non serve solo saper scrivere: serve capire come il processo di vendita si muove, come il contenuto e la strategia lavorano insieme.<br>
+          <p>Il copy è cambiato. Oggi non serve solo saper scrivere: serve capire come il processo di vendita si muove, come il contenuto e la strategia lavorano insieme.<br>
           Io sono un <strong>copywriter strategico</strong>: supervisiono, gestisco e coordino la comunicazione con una logica di performance.<br>
           L’AI può generare parole. Io faccio in modo che quelle parole portino <strong>risultati veri</strong>.</p>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT (foto solo qui) -->
+    <!-- ABOUT -->
     <section id="about">
       <div class="container grid-2" style="align-items:center">
         <div>
@@ -178,12 +140,12 @@
           <a href="#servizi" class="btn primary">Scopri il mio approccio →</a>
         </div>
         <div class="portrait-frame">
-          <img src="portrait.jpg" alt="Michele Betto, Copywriter Strategico" loading="lazy" class="ph">
+          <img src="portrait.jpg" alt="Michele Betto, Copywriter Strategico" loading="lazy">
         </div>
       </div>
     </section>
 
-    <!-- SERVIZI (icone tolte, copy invariato) -->
+    <!-- SERVIZI -->
     <section id="servizi">
       <div class="container">
         <h2>Non vendo testi. Progetto strategie di vendita basate sulle parole.</h2>
@@ -205,17 +167,13 @@
             <a href="#contatti" class="m-cta">Ottimizza il percorso →</a>
           </article>
         </div>
-        <div class="cta-bar">
-          <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary">Richiedi una sessione strategica →</a>
-        </div>
       </div>
     </section>
 
-    <!-- GESTIONE OBIEZIONI (accordion) -->
+    <!-- OBIEZIONI -->
     <section id="obiezioni">
       <div class="container">
         <h2>Prima che tu lo pensi…</h2>
-        <p>Ogni decisione d’investimento genera domande. Ecco le più comuni — e le mie risposte dirette.</p>
         <div class="faq">
           <details open>
             <summary>«Non ho tempo per seguire un progetto di copy completo.»</summary>
@@ -233,23 +191,15 @@
             <p><strong>Beneficio:</strong> Niente rivoluzioni: solo strategie più efficaci e coordinate.</p>
           </details>
         </div>
-        <div class="cta-bar">
-          <a href="#contatti" class="btn ghost">Scopri come potremmo lavorare insieme →</a>
-        </div>
       </div>
     </section>
 
-    <!-- PORTFOLIO (placeholder) -->
+    <!-- PORTFOLIO -->
     <section id="portfolio">
       <div class="container">
         <h2>Risultati, non teorie.</h2>
         <p>Sto raccogliendo alcuni case study reali: ottimizzazioni di funnel, rebranding e strategie di copywriting che hanno generato impatti misurabili su traffico e vendite.<br>
         Presto saranno pubblicati qui.</p>
-        <div class="portfolio">
-          <div class="tile"><strong>Case study #1</strong><span style="color:var(--muted)">Sales page · +XX% conversioni</span></div>
-          <div class="tile"><strong>Case study #2</strong><span style="color:var(--muted)">Email funnel · +XX% revenue</span></div>
-          <div class="tile"><strong>Case study #3</strong><span style="color:var(--muted)">VSL · +XX% CTR</span></div>
-        </div>
       </div>
     </section>
 
@@ -260,10 +210,9 @@
         <p>Se vuoi migliorare le performance del tuo marketing, scrivimi.<br>
         Analizzerò la tua strategia e ti dirò con trasparenza se (e come) posso aiutarti.<br>
         Niente form, solo una conversazione utile.</p>
-
         <div class="cta-bar">
-          <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" class="btn primary" target="_blank" rel="noopener">Prenota una call gratuita →</a>
-          <a href="https://www.instagram.com/betto_bsns/" target="_blank" rel="noopener" class="btn ghost">Scrivimi su Instagram o scopri se possiamo lavorare insieme</a>
+          <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" class="btn primary" target="_blank">Prenota una call gratuita →</a>
+          <a href="https://www.instagram.com/betto_bsns/" target="_blank" class="btn ghost">Scrivimi su Instagram</a>
         </div>
       </div>
     </section>
@@ -272,7 +221,7 @@
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
       <span>© <script>document.write(new Date().getFullYear())</script> Betto Copywriting</span>
-      <span>Contatti: <a href="mailto:michelebetto.copy@gmail.com">michelebetto.copy@gmail.com</a> · <a href="tel:+393482436986">+39 348 243 6986</a> · <a href="https://www.instagram.com/betto_bsns/" target="_blank" rel="noopener">@betto_bsns</a></span>
+      <span>Contatti: <a href="mailto:michelebetto.copy@gmail.com">michelebetto.copy@gmail.com</a> · <a href="tel:+393482436986">+39 348 243 6986</a> · <a href="https://www.instagram.com/betto_bsns/">@betto_bsns</a></span>
     </div>
   </footer>
 </body>
