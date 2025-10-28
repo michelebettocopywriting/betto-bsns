@@ -6,10 +6,14 @@
   <title>Betto Copywriting — Copywriter Strategico</title>
   <meta name="description" content="Copywriter strategico: strategie, processi e copy che convertono. Sales page, landing page, email, VSL e ads. Prenota una call di analisi gratuita." />
   <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
+    /* ====== Base Theme ====== */
     :root{
       --bg:#0f1115;
       --panel:#141821;
@@ -18,26 +22,96 @@
       --accent:#4f8cff;
       --accent-ink:#0b1220;
       --line:#212635;
+      --sand:#b6b2a5; /* secondo accento tenue */
+      --maxw:1100px;
+      --space:24px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;z-index:50;background:rgba(15,17,21,.9);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between}
+    p{color:var(--muted);line-height:1.65;max-width:70ch}
+    .container{max-width:var(--maxw);margin:0 auto;padding:var(--space)}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(15,17,21,.92),rgba(15,17,21,.78));backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .brand img{height:32px}
+    .brand img{height:28px;width:auto}
+    .nav a{opacity:.9}
+    .nav a:hover{opacity:1}
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid transparent;transition:.25s ease}
-    .btn.primary{background:var(--accent);color:var(--accent-ink)}
+    .btn.primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 10px 26px rgba(79,140,255,.22)}
+    .btn.primary:hover{transform:translateY(-1px);box-shadow:0 14px 32px rgba(79,140,255,.30)}
     .btn.ghost{border-color:var(--line);color:var(--ink);background:transparent}
-    .btn.primary:hover{opacity:.9}
-    section{padding:64px 0;border-top:1px solid var(--line)}
-    h1{font-size:clamp(32px,6vw,56px);line-height:1.05}
-    h2{font-size:clamp(26px,4vw,38px)}
-    p{color:var(--muted);line-height:1.6}
-    ul{color:var(--muted);padding-left:18px}
+    .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+    .cta-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+    /* Sections */
+    section{padding:80px 0;border-top:1px solid var(--line)}
+    h1{font-size:clamp(36px,6vw,58px);line-height:1.05;margin:0 0 14px}
+    h2{font-size:clamp(28px,4.2vw,40px);margin:0 0 14px}
+    h3{font-size:clamp(18px,2.7vw,22px);margin:0 0 10px;color:var(--ink)}
+    h4{margin:18px 0 8px}
+
+    /* Grids */
+    .grid-2{display:grid;gap:32px}
+    @media(min-width:980px){.grid-2{grid-template-columns:1.2fr .8fr}}
+
+    /* Panels & visuals */
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
+    .ph{border-radius:16px;border:1px solid var(--line);overflow:hidden}
+
+    /* Hero background */
+    .hero-wrap{position:relative;overflow:hidden}
+    .hero-noise{position:absolute;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:soft-light;background-image:url('assets/noise.webp');background-size:600px 600px}
+    .hero-grad{position:absolute;inset:-20% -10% auto -10%;height:120%;background:
+      radial-gradient(1200px 600px at 0% 0%, rgba(79,140,255,.10), transparent 60%),
+      radial-gradient(800px 400px at 100% 10%, rgba(79,140,255,.06), transparent 60%);pointer-events:none}
+
+    /* Cards servizi */
+    .cards{display:grid;gap:16px;margin-top:18px}
+    @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s ease;display:flex;flex-direction:column;gap:8px}
+    .card:hover{transform:translateY(-2px);border-color:#2a3350}
+    .ico{width:28px;height:28px;opacity:.85}
+    .m-cta{color:var(--accent);font-weight:700;margin-top:auto}
+
+    /* FAQ / Obiezioni */
+    .faq{display:grid;gap:12px;margin-top:18px}
+    .faq details{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .faq summary{cursor:pointer;font-weight:700;list-style:none}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq p{color:var(--muted);margin:10px 0 0}
+
+    /* Portfolio tiles */
+    .portfolio{display:grid;gap:16px}
+    @media(min-width:900px){.portfolio{grid-template-columns:repeat(3,1fr)}}
+    .tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;min-height:120px;display:flex;flex-direction:column;gap:8px}
+
+    /* Footer */
     footer{padding:48px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+    .foot-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px}
+
+    /* ===== Mobile polish ===== */
+    @media (max-width:380px){
+      h1{font-size:30px}
+      h2{font-size:22px}
+    }
+    @media(max-width:720px){
+      .nav nav{display:flex;gap:12px;flex-wrap:wrap}
+      .nav .btn.primary{padding:10px 14px}
+      .brand img{height:24px}
+    }
+    @media(max-width:640px){ .btn{width:100%;justify-content:center} }
+    @media(min-width:640px){ .cards{grid-template-columns:repeat(2,1fr)} }
+    @media(min-width:700px){ .portfolio{grid-template-columns:repeat(2,1fr)} }
+
+    section{padding:56px 0}
+    @media(min-width:900px){ section{padding:80px 0} }
+
+    @media (prefers-reduced-motion: reduce){ *{transition:none !important;animation:none !important} }
   </style>
 </head>
 
@@ -59,23 +133,34 @@
   </header>
 
   <main>
-    <!-- HOME -->
-    <section id="home">
-      <div class="container">
-        <h1>Sviluppo strategie che vendono. Il copy è solo la punta dell’iceberg.</h1>
-        <h3>Non mi limito a scrivere testi: costruisco strategie di comunicazione che usano il copy come leva per vendere di più, con meno sprechi.</h3>
-        <p><strong>Le mie strategie collegano creatività e analisi</strong> per creare un impatto concreto: più conversioni, meno spreco di budget e una comunicazione che funziona davvero.</p>
-        <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary">Prenota una call gratuita di analisi</a>
-        <p>Il copy è cambiato. Oggi non serve solo saper scrivere: serve capire come il processo di vendita si muove, come il contenuto e la strategia lavorano insieme.<br>
-        Io sono un <strong>copywriter strategico</strong>: supervisiono, gestisco e coordino la comunicazione con una logica di performance.<br>
-        L’AI può generare parole. Io faccio in modo che quelle parole portino <strong>risultati veri</strong>.</p>
-        <a href="#about" class="btn ghost">Scopri come lavoro →</a>
+    <!-- HOME (copy invariato) -->
+    <section id="home" class="hero-wrap">
+      <div class="hero-grad"></div>
+      <div class="hero-noise"></div>
+      <div class="container" style="position:relative">
+        <div class="grid-2">
+          <div>
+            <h1>Sviluppo strategie che vendono. Il copy è solo la punta dell’iceberg.</h1>
+            <h3>Non mi limito a scrivere testi: costruisco strategie di comunicazione che usano il copy come leva per vendere di più, con meno sprechi.</h3>
+            <p><strong>Le mie strategie collegano creatività e analisi</strong> per creare un impatto concreto: più conversioni, meno spreco di budget e una comunicazione che funziona davvero.</p>
+            <div class="cta-bar">
+              <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary">Prenota una call gratuita di analisi</a>
+              <a href="#servizi" class="btn. ghost btn ghost">Scopri come lavoro →</a>
+            </div>
+            <p style="margin-top:14px">Il copy è cambiato. Oggi non serve solo saper scrivere: serve capire come il processo di vendita si muove, come il contenuto e la strategia lavorano insieme.<br>
+            Io sono un <strong>copywriter strategico</strong>: supervisiono, gestisco e coordino la comunicazione con una logica di performance.<br>
+            L’AI può generare parole. Io faccio in modo che quelle parole portino <strong>risultati veri</strong>.</p>
+          </div>
+          <div>
+            <img src="portrait.jpg" alt="Michele Betto, Copywriter Strategico" loading="lazy" class="ph">
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT (copy invariato) -->
     <section id="about">
-      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center">
+      <div class="container grid-2" style="align-items:center">
         <div>
           <h2>Dal copy alla strategia: l’evoluzione naturale di chi vuole vendere davvero.</h2>
           <p>Mi chiamo <strong>Betto Michele</strong> e sono un copywriter strategico.<br>
@@ -86,57 +171,85 @@
           <a href="#servizi" class="btn primary">Scopri il mio approccio →</a>
         </div>
         <div>
-          <img src="portrait.jpg" alt="Michele Betto, Copywriter Strategico" style="border-radius:12px;border:1px solid var(--line)">
+          <img src="portrait.jpg" alt="Michele Betto, Copywriter Strategico" loading="lazy" class="ph">
         </div>
       </div>
     </section>
 
-    <!-- SERVIZI -->
+    <!-- SERVIZI (copy invariato, resa in card) -->
     <section id="servizi">
       <div class="container">
         <h2>Non vendo testi. Progetto strategie di vendita basate sulle parole.</h2>
         <h4>Ogni progetto nasce da un’analisi: cosa blocca le tue conversioni e dove la comunicazione si inceppa.</h4>
-        <ul>
-          <li><strong>Strategia di comunicazione e supervisione dei contenuti</strong> → definisco il messaggio e coordino la produzione (AI + team marketing) per coerenza e performance.</li>
-          <li><strong>Copywriting strategico</strong> → scrivo copy ad alto impatto per <em>sales page, landing page, email marketing, VSL e ads.</em></li>
-          <li><strong>Ottimizzazione funnel e customer journey</strong> → studio i punti critici, correggo la direzione e massimizzo la resa di ogni messaggio.</li>
-        </ul>
-        <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary">Richiedi una sessione strategica →</a>
+        <div class="cards">
+          <article class="card">
+            <img src="assets/strategy.svg" alt="" class="ico" loading="lazy">
+            <h3>Strategia di comunicazione e supervisione dei contenuti</h3>
+            <p>Definisco il messaggio e coordino la produzione (AI + team marketing) per coerenza e performance.</p>
+            <a href="#contatti" class="m-cta">Capisci come funziona →</a>
+          </article>
+          <article class="card">
+            <img src="assets/copy.svg" alt="" class="ico" loading="lazy">
+            <h3>Copywriting strategico</h3>
+            <p>Scrivo copy ad alto impatto per <em>sales page, landing page, email marketing, VSL e ads.</em></p>
+            <a href="#contatti" class="m-cta">Parliamone →</a>
+          </article>
+          <article class="card">
+            <img src="assets/funnel.svg" alt="" class="ico" loading="lazy">
+            <h3>Ottimizzazione funnel e customer journey</h3>
+            <p>Studio i punti critici, correggo la direzione e massimizzo la resa di ogni messaggio.</p>
+            <a href="#contatti" class="m-cta">Ottimizza il percorso →</a>
+          </article>
+        </div>
+        <div class="cta-bar">
+          <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary">Richiedi una sessione strategica →</a>
+        </div>
       </div>
     </section>
 
-    <!-- GESTIONE OBIEZIONI -->
+    <!-- GESTIONE OBIEZIONI (copy invariato, accordion) -->
     <section id="obiezioni">
       <div class="container">
         <h2>Prima che tu lo pensi…</h2>
         <p>Ogni decisione d’investimento genera domande. Ecco le più comuni — e le mie risposte dirette.</p>
-
-        <h4>“Non ho tempo per seguire un progetto di copy completo.”</h4>
-        <p><strong>Risposta:</strong> Gestisco io la parte strategica e coordinamento. Tu devi solo approvare le scelte chiave.<br>
-        <strong>Beneficio:</strong> Risparmi tempo e mantieni il controllo, senza bloccare il flusso operativo.</p>
-
-        <h4>“Già uso l’AI per scrivere i testi, perché dovrei pagare un copywriter?”</h4>
-        <p><strong>Risposta:</strong> L’AI scrive, ma non pensa come un venditore. Io progetto la logica dietro ogni messaggio, così il contenuto prodotto dall’AI converte davvero.<br>
-        <strong>Beneficio:</strong> Meno parole, più risultati. L’AI diventa un asset, non un sostituto improvvisato.</p>
-
-        <h4>“Il mio team marketing può occuparsene.”</h4>
-        <p><strong>Risposta:</strong> Perfetto. Io collaboro con i team interni per ottimizzare il processo e migliorare ciò che già funziona.<br>
-        <strong>Beneficio:</strong> Niente rivoluzioni: solo strategie più efficaci e coordinate.</p>
-
-        <a href="#contatti" class="btn ghost">Scopri come potremmo lavorare insieme →</a>
+        <div class="faq">
+          <details open>
+            <summary>«Non ho tempo per seguire un progetto di copy completo.»</summary>
+            <p><strong>Risposta:</strong> Gestisco io la parte strategica e coordinamento. Tu devi solo approvare le scelte chiave.</p>
+            <p><strong>Beneficio:</strong> Risparmi tempo e mantieni il controllo, senza bloccare il flusso operativo.</p>
+          </details>
+          <details>
+            <summary>«Già uso l’AI per scrivere i testi, perché dovrei pagare un copywriter?»</summary>
+            <p><strong>Risposta:</strong> L’AI scrive, ma non pensa come un venditore. Io progetto la logica dietro ogni messaggio, così il contenuto prodotto dall’AI converte davvero.</p>
+            <p><strong>Beneficio:</strong> Meno parole, più risultati. L’AI diventa un asset, non un sostituto improvvisato.</p>
+          </details>
+          <details>
+            <summary>«Il mio team marketing può occuparsene.»</summary>
+            <p><strong>Risposta:</strong> Perfetto. Io collaboro con i team interni per ottimizzare il processo e migliorare ciò che già funziona.</p>
+            <p><strong>Beneficio:</strong> Niente rivoluzioni: solo strategie più efficaci e coordinate.</p>
+          </details>
+        </div>
+        <div class="cta-bar">
+          <a href="#contatti" class="btn ghost">Scopri come potremmo lavorare insieme →</a>
+        </div>
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
+    <!-- PORTFOLIO (copy invariato, griglia placeholder) -->
     <section id="portfolio">
       <div class="container">
         <h2>Risultati, non teorie.</h2>
         <p>Sto raccogliendo alcuni case study reali: ottimizzazioni di funnel, rebranding e strategie di copywriting che hanno generato impatti misurabili su traffico e vendite.<br>
         Presto saranno pubblicati qui.</p>
+        <div class="portfolio">
+          <div class="tile"><strong>Case study #1</strong><span style="color:var(--muted)">Sales page · +XX% conversioni</span></div>
+          <div class="tile"><strong>Case study #2</strong><span style="color:var(--muted)">Email funnel · +XX% revenue</span></div>
+          <div class="tile"><strong>Case study #3</strong><span style="color:var(--muted)">VSL · +XX% CTR</span></div>
+        </div>
       </div>
     </section>
 
-    <!-- CONTATTI -->
+    <!-- CONTATTI (copy invariato) -->
     <section id="contatti">
       <div class="container">
         <h2>Parliamone.</h2>
@@ -144,9 +257,10 @@
         Analizzerò la tua strategia e ti dirò con trasparenza se (e come) posso aiutarti.<br>
         Niente form, solo una conversazione utile.</p>
 
-        <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" class="btn primary" target="_blank" rel="noopener">Prenota una call gratuita →</a>
-        <br><br>
-        <a href="https://www.instagram.com/betto_bsns/" target="_blank" rel="noopener" class="btn ghost">Scrivimi su Instagram o scopri se possiamo lavorare insieme</a>
+        <div class="cta-bar">
+          <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" class="btn primary" target="_blank" rel="noopener">Prenota una call gratuita →</a>
+          <a href="https://www.instagram.com/betto_bsns/" target="_blank" rel="noopener" class="btn ghost">Scrivimi su Instagram o scopri se possiamo lavorare insieme</a>
+        </div>
       </div>
     </section>
   </main>
