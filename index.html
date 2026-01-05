@@ -1,264 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Funnel Repair™</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Betto Copywriting — Copywriter Strategico</title>
+  <meta name="description" content="Copywriter strategico: strategie, processi e copy che convertono. Sales page, landing page, email, VSL e ads. Prenota una call di analisi gratuita." />
+  <link rel="icon" type="image/png" href="logo.png">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-  <!-- AOS Animations -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #070b16;
-      --bg-soft: #0c1224;
-      --text: #eef1f7;
-      --muted: #a1acc7;
-      --primary: #3b6cff;
-      --secondary: #5ddcff;
-      --glow: rgba(59,108,255,0.25);
+    :root{
+      --bg:#0f1115;
+      --panel:#141821;
+      --ink:#e6e9ef;
+      --muted:#9aa3b2;
+      --accent:#4f8cff;
+      --accent-ink:#0b1220;
+      --line:#212635;
+      --maxw:1100px;
+      --space:24px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    p{color:var(--muted);line-height:1.65;max-width:70ch}
+    .container{max-width:var(--maxw);margin:0 auto;padding:var(--space)}
 
-    body {
-      font-family: Inter, sans-serif;
-      background:
-        radial-gradient(900px 400px at 20% -10%, rgba(93,220,255,0.12), transparent),
-        radial-gradient(800px 500px at 80% 10%, rgba(59,108,255,0.18), transparent),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(15,17,21,.92),rgba(15,17,21,.78));backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand img{height:28px;width:auto}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid transparent;transition:.25s ease}
+    .btn.primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 0 15px rgba(79,140,255,.3)}
+    .btn.primary:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(79,140,255,.45)}
+    .btn.ghost{border:1px solid var(--line);color:var(--ink)}
+    .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+    .cta-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 
-    section {
-      padding: 120px 6vw;
-    }
+    /* Sections */
+    section{padding:80px 0;border-top:1px solid var(--line)}
+    h1{font-size:clamp(36px,6vw,58px);line-height:1.05;margin:0 0 14px}
+    h2{font-size:clamp(28px,4.2vw,40px);margin:0 0 14px}
+    h3{font-size:clamp(18px,2.7vw,22px);margin:0 0 10px;color:var(--ink)}
 
-    h1, h2 {
-      font-family: "Playfair Display", serif;
-      letter-spacing: -0.02em;
-    }
+    .grid-2{display:grid;gap:32px}
+    @media(min-width:980px){.grid-2{grid-template-columns:1.2fr .8fr}}
 
-    h1 {
-      font-size: clamp(3rem, 5vw, 4.2rem);
-      line-height: 1.05;
-      margin-bottom: 32px;
+    /* HERO SECTION */
+    .hero-wrap{position:relative;overflow:hidden;background:linear-gradient(145deg,#10121a 0%,#12141f 35%,#0e1320 100%)}
+    .hero-wrap::before{
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(circle at 30% 30%, rgba(79,140,255,.12), transparent 70%),
+                 radial-gradient(circle at 70% 70%, rgba(79,140,255,.07), transparent 60%);
+      animation:floatbg 12s ease-in-out infinite alternate;
     }
+    @keyframes floatbg {
+      0%{transform:translate(0,0)}
+      50%{transform:translate(-10px,10px)}
+      100%{transform:translate(0,0)}
+    }
+    .hero-stack{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;max-width:780px}
+    .glow-title{text-shadow:0 0 18px rgba(79,140,255,.3)}
+    .glow-cta{animation:pulse 3s ease-in-out infinite}
+    @keyframes pulse {0%,100%{box-shadow:0 0 20px rgba(79,140,255,.25)}50%{box-shadow:0 0 30px rgba(79,140,255,.45)}}
 
-    h2 {
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      margin-bottom: 32px;
-    }
+    /* About portrait */
+    .portrait-frame{padding:2px;border-radius:18px;background:linear-gradient(135deg, rgba(79,140,255,.4), rgba(79,140,255,0));display:inline-block}
 
-    h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-    }
+    /* Cards servizi */
+    .cards{display:grid;gap:16px;margin-top:18px}
+    @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s ease;display:flex;flex-direction:column;gap:8px}
+    .card:hover{transform:translateY(-4px);border-color:var(--accent);background:linear-gradient(180deg, rgba(79,140,255,.08), transparent 60%), var(--panel)}
 
-    p {
-      color: var(--muted);
-      max-width: 820px;
-      font-size: 1.05rem;
-    }
+    /* Dopamina visiva sui titoli */
+    h2, h1:hover {color:var(--accent);transition:color .4s ease}
 
-    strong {
-      color: var(--text);
-    }
+    /* Footer */
+    footer{padding:48px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-inner {
-      max-width: 1100px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(59,108,255,0.15);
-      color: var(--secondary);
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-
-    .cta {
-      display: inline-block;
-      margin-top: 48px;
-      padding: 18px 34px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #050814;
-      font-weight: 800;
-      text-decoration: none;
-      border-radius: 14px;
-      box-shadow: 0 30px 80px var(--glow);
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 45px 120px rgba(59,108,255,0.4);
-    }
-
-    .soft {
-      background:
-        radial-gradient(700px 300px at 10% 0%, rgba(59,108,255,0.12), transparent),
-        var(--bg-soft);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 40px;
-      margin-top: 64px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border-radius: 22px;
-      padding: 40px;
-      backdrop-filter: blur(6px);
-    }
-
-    .quote {
-      font-family: "Playfair Display", serif;
-      font-size: 1.6rem;
-      max-width: 720px;
-      color: var(--text);
-    }
-
-    .image-wrap {
-      margin-top: 64px;
-      max-width: 1000px;
-    }
-
-    .image-wrap img {
-      width: 100%;
-      border-radius: 28px;
-      box-shadow: 0 60px 120px rgba(0,0,0,0.6);
-    }
-
-    footer {
-      padding: 80px 6vw;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
+    /* Responsive */
+    @media(max-width:720px){.grid-2{grid-template-columns:1fr}}
   </style>
 </head>
 
 <body>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner" data-aos="fade-up">
-      <span class="badge">Funnel Repair™</span>
-      <h1>Il servizio pensato<br>per essere inutile.<br>Dopo.</h1>
-      <p>
-        Ripariamo funnel che ricevono traffico, hanno struttura,
-        ma <strong>stanno perdendo vendite</strong>.
-      </p>
-      <p>
-        Finito il lavoro puoi continuare da solo.
-        O con la tua agenzia.
-      </p>
-      <a href="#cta" class="cta">Richiedi la diagnosi gratuita</a>
-    </div>
-  </section>
-
-  <!-- PROBLEMA -->
-  <section class="soft">
-    <div data-aos="fade-up">
-      <h2>Il problema non è il traffico.</h2>
-      <p>È cosa succede dopo il click.</p>
-      <p>
-        Se il funnel non guida, se i messaggi non sono allineati,
-        se è stato progettato per piacere invece che per vendere,
-        <strong>ogni euro in ads lavora contro di te</strong>.
-      </p>
-    </div>
-  </section>
-
-  <!-- SOLUZIONE -->
-  <section>
-    <div data-aos="fade-up">
-      <h2>Non è da rifare.<br>È da riparare.</h2>
-      <p>
-        Non facciamo siti.
-        Non facciamo storytelling.
-        Non rifacciamo il brand.
-      </p>
-      <p>
-        Facciamo una cosa sola:
-        <strong>aggiustiamo funnel che stanno già girando</strong>.
-      </p>
-    </div>
-
-    <div class="image-wrap" data-aos="zoom-in">
-      <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1600" alt="Data & analysis">
-    </div>
-  </section>
-
-  <!-- METODO -->
-  <section class="soft">
-    <div data-aos="fade-up">
-      <h2>Il Metodo Funnel Repair™</h2>
-    </div>
-
-    <div class="grid">
-      <div class="card" data-aos="fade-up">
-        <h3>Analisi</h3>
-        <p>Smontiamo funnel, ads e flussi per individuare perdite reali.</p>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="Betto Copywriting logo">
+        <span>Betto Copywriting</span>
       </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <h3>Ricostruzione</h3>
-        <p>Copy, struttura e CTA riallineati alla conversione.</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <h3>Testing</h3>
-        <p>Varianti concrete, testabili, senza teoria creativa.</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="300">
-        <h3>Ottimizzazione</h3>
-        <p>30 giorni di iterazioni guidate dai dati.</p>
-      </div>
+      <nav style="display:flex;gap:18px;align-items:center">
+        <a href="#about">About</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#obiezioni">Obiezioni</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contatti" class="btn primary">Prenota una call</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- CTA FINALE -->
-  <section id="cta">
-    <div data-aos="fade-up">
-      <p class="quote">
-        L’unico servizio CRO pensato per essere inutile.
-        Perché dopo non ti serviamo più.
-      </p>
-      <a href="#" class="cta">Richiedi la diagnosi gratuita</a>
-    </div>
-  </section>
+  <main>
+    <!-- HOME -->
+    <section id="home" class="hero-wrap">
+      <div class="container">
+        <div class="hero-stack">
+          <h1 class="glow-title">Sviluppo strategie che vendono. Il copy è solo la punta dell’iceberg.</h1>
+          <h3>Non mi limito a scrivere testi: costruisco strategie di comunicazione che usano il copy come leva per vendere di più, con meno sprechi.</h3>
+          <p><strong>Le mie strategie collegano creatività e analisi</strong> per creare un impatto concreto: più conversioni, meno spreco di budget e una comunicazione che funziona davvero.</p>
+          <div class="cta-bar">
+            <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary glow-cta">Prenota una call gratuita di analisi</a>
+            <a href="#servizi" class="btn ghost">Scopri come lavoro →</a>
+          </div>
+          <p>Il copy è cambiato. Oggi non serve solo saper scrivere: serve capire come il processo di vendita si muove, come il contenuto e la strategia lavorano insieme.<br>
+          Io sono un <strong>copywriter strategico</strong>: supervisiono, gestisco e coordino la comunicazione con una logica di performance.<br>
+          L’AI può generare parole. Io faccio in modo che quelle parole portino <strong>risultati veri</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container grid-2" style="align-items:center">
+        <div>
+          <h2>Dal copy alla strategia: l’evoluzione naturale di chi vuole vendere davvero.</h2>
+          <p>Mi chiamo <strong>Betto Michele</strong> e sono un copywriter strategico.<br>
+          Negli anni ho capito che scrivere non basta. Il copy è solo una parte di un sistema più grande: <strong>strategie, processi, funnel, contenuti e persone.</strong><br>
+          Oggi aiuto aziende e professionisti a trasformare la loro comunicazione in un motore di conversione.</p>
+          <p>Analizzo, progetto e ottimizzo tutto il processo di vendita, dal messaggio alla struttura che lo sostiene.<br>
+          Scrivo, sì. Ma soprattutto <strong>penso come un marketer e ragiono come un venditore.</strong></p>
+          <a href="#servizi" class="btn primary">Scopri il mio approccio →</a>
+        </div>
+        <div class="portrait-frame">
+          <img src="portrait.jpg" alt="Michele Betto, Copywriter Strategico" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIZI -->
+    <section id="servizi">
+      <div class="container">
+        <h2>Non vendo testi. Progetto strategie di vendita basate sulle parole.</h2>
+        <h4>Ogni progetto nasce da un’analisi: cosa blocca le tue conversioni e dove la comunicazione si inceppa.</h4>
+        <div class="cards">
+          <article class="card">
+            <h3>Strategia di comunicazione e supervisione dei contenuti</h3>
+            <p>Definisco il messaggio e coordino la produzione (AI + team marketing) per coerenza e performance.</p>
+            <a href="#contatti" class="m-cta">Capisci come funziona →</a>
+          </article>
+          <article class="card">
+            <h3>Copywriting strategico</h3>
+            <p>Scrivo copy ad alto impatto per <em>sales page, landing page, email marketing, VSL e ads.</em></p>
+            <a href="#contatti" class="m-cta">Parliamone →</a>
+          </article>
+          <article class="card">
+            <h3>Ottimizzazione funnel e customer journey</h3>
+            <p>Studio i punti critici, correggo la direzione e massimizzo la resa di ogni messaggio.</p>
+            <a href="#contatti" class="m-cta">Ottimizza il percorso →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBIEZIONI -->
+    <section id="obiezioni">
+      <div class="container">
+        <h2>Prima che tu lo pensi…</h2>
+        <div class="faq">
+          <details open>
+            <summary>«Non ho tempo per seguire un progetto di copy completo.»</summary>
+            <p><strong>Risposta:</strong> Gestisco io la parte strategica e coordinamento. Tu devi solo approvare le scelte chiave.</p>
+            <p><strong>Beneficio:</strong> Risparmi tempo e mantieni il controllo, senza bloccare il flusso operativo.</p>
+          </details>
+          <details>
+            <summary>«Già uso l’AI per scrivere i testi, perché dovrei pagare un copywriter?»</summary>
+            <p><strong>Risposta:</strong> L’AI scrive, ma non pensa come un venditore. Io progetto la logica dietro ogni messaggio, così il contenuto prodotto dall’AI converte davvero.</p>
+            <p><strong>Beneficio:</strong> Meno parole, più risultati. L’AI diventa un asset, non un sostituto improvvisato.</p>
+          </details>
+          <details>
+            <summary>«Il mio team marketing può occuparsene.»</summary>
+            <p><strong>Risposta:</strong> Perfetto. Io collaboro con i team interni per ottimizzare il processo e migliorare ciò che già funziona.</p>
+            <p><strong>Beneficio:</strong> Niente rivoluzioni: solo strategie più efficaci e coordinate.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="container">
+        <h2>Risultati, non teorie.</h2>
+        <p>Sto raccogliendo alcuni case study reali: ottimizzazioni di funnel, rebranding e strategie di copywriting che hanno generato impatti misurabili su traffico e vendite.<br>
+        Presto saranno pubblicati qui.</p>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti">
+      <div class="container">
+        <h2>Parliamone.</h2>
+        <p>Se vuoi migliorare le performance del tuo marketing, scrivimi.<br>
+        Analizzerò la tua strategia e ti dirò con trasparenza se (e come) posso aiutarti.<br>
+        Niente form, solo una conversazione utile.</p>
+        <div class="cta-bar">
+          <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" class="btn primary" target="_blank">Prenota una call gratuita →</a>
+          <a href="https://www.instagram.com/betto_bsns/" target="_blank" class="btn ghost">Scrivimi su Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    Funnel Repair™ · CRO per marketer che vogliono controllo, non promesse
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <span>© <script>document.write(new Date().getFullYear())</script> Betto Copywriting</span>
+      <span>Contatti: <a href="mailto:michelebetto.copy@gmail.com">michelebetto.copy@gmail.com</a> · <a href="tel:+393482436986">+39 348 243 6986</a> · <a href="https://www.instagram.com/betto_bsns/">@betto_bsns</a></span>
+    </div>
   </footer>
-
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 900,
-      easing: 'ease-out-cubic',
-      once: true
-    });
-  </script>
-
 </body>
 </html>
