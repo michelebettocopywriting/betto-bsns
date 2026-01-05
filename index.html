@@ -4,55 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Funnel Repair™</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b0d10;
-      --bg-soft: #11141a;
-      --text: #e7e9ee;
-      --muted: #9aa0ad;
-      --accent: #6cf2b2;
-      --accent-soft: rgba(108,242,178,0.15);
-      --border: rgba(255,255,255,0.08);
+      --bg: #070b16;
+      --bg-soft: #0c1224;
+      --text: #eef1f7;
+      --muted: #a1acc7;
+      --primary: #3b6cff;
+      --secondary: #5ddcff;
+      --glow: rgba(59,108,255,0.25);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(1200px 600px at 50% -200px, #132017, var(--bg));
+      font-family: Inter, sans-serif;
+      background:
+        radial-gradient(900px 400px at 20% -10%, rgba(93,220,255,0.12), transparent),
+        radial-gradient(800px 500px at 80% 10%, rgba(59,108,255,0.18), transparent),
+        var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
     section {
-      padding: 96px 24px;
-      border-bottom: 1px solid var(--border);
+      padding: 120px 6vw;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    h1, h2, h3 {
+    h1, h2 {
+      font-family: "Playfair Display", serif;
       letter-spacing: -0.02em;
     }
 
     h1 {
-      font-size: clamp(2.6rem, 5vw, 4rem);
-      line-height: 1.1;
-      margin-bottom: 24px;
+      font-size: clamp(3rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      margin-bottom: 32px;
     }
 
     h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 24px;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      margin-bottom: 32px;
     }
 
     h3 {
@@ -63,111 +66,94 @@
     p {
       color: var(--muted);
       max-width: 820px;
-      margin-bottom: 16px;
+      font-size: 1.05rem;
     }
 
     strong {
       color: var(--text);
     }
 
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+    }
+
     .badge {
       display: inline-block;
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
+      background: rgba(59,108,255,0.15);
+      color: var(--secondary);
       font-weight: 600;
-      font-size: 0.8rem;
       margin-bottom: 24px;
-    }
-
-    .hero {
-      text-align: center;
-      padding-top: 120px;
-    }
-
-    .hero p {
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1.05rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, var(--bg-soft), #0c0f14);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-    }
-
-    .list {
-      margin-top: 24px;
-    }
-
-    .list li {
-      list-style: none;
-      padding-left: 24px;
-      position: relative;
-      margin-bottom: 12px;
-      color: var(--muted);
-    }
-
-    .list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-
-    .quote {
-      border-left: 3px solid var(--accent);
-      padding-left: 24px;
-      font-size: 1.2rem;
-      color: var(--text);
-      max-width: 700px;
-    }
-
-    .price {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 16px 0;
     }
 
     .cta {
       display: inline-block;
-      margin-top: 32px;
-      padding: 18px 32px;
-      background: var(--accent);
-      color: #0b0d10;
-      border-radius: 12px;
+      margin-top: 48px;
+      padding: 18px 34px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #050814;
       font-weight: 800;
       text-decoration: none;
+      border-radius: 14px;
+      box-shadow: 0 30px 80px var(--glow);
       transition: transform .15s ease, box-shadow .15s ease;
-      box-shadow: 0 20px 40px rgba(108,242,178,0.25);
     }
 
     .cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 30px 60px rgba(108,242,178,0.35);
+      box-shadow: 0 45px 120px rgba(59,108,255,0.4);
+    }
+
+    .soft {
+      background:
+        radial-gradient(700px 300px at 10% 0%, rgba(59,108,255,0.12), transparent),
+        var(--bg-soft);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+      margin-top: 64px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border-radius: 22px;
+      padding: 40px;
+      backdrop-filter: blur(6px);
+    }
+
+    .quote {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      max-width: 720px;
+      color: var(--text);
+    }
+
+    .image-wrap {
+      margin-top: 64px;
+      max-width: 1000px;
+    }
+
+    .image-wrap img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 60px 120px rgba(0,0,0,0.6);
     }
 
     footer {
-      padding: 64px 24px;
+      padding: 80px 6vw;
       text-align: center;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -176,137 +162,85 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container">
+    <div class="hero-inner" data-aos="fade-up">
       <span class="badge">Funnel Repair™</span>
-      <h1>Il servizio pensato per essere inutile.<br>Dopo.</h1>
+      <h1>Il servizio pensato<br>per essere inutile.<br>Dopo.</h1>
       <p>
         Ripariamo funnel che ricevono traffico, hanno struttura,
-        ma <strong>non convertono quanto dovrebbero</strong>.
+        ma <strong>stanno perdendo vendite</strong>.
       </p>
       <p>
-        Finito il lavoro puoi continuare da solo.  
-        O con la tua agenzia.  
-        O senza più buttare soldi.
+        Finito il lavoro puoi continuare da solo.
+        O con la tua agenzia.
       </p>
       <a href="#cta" class="cta">Richiedi la diagnosi gratuita</a>
     </div>
   </section>
 
   <!-- PROBLEMA -->
-  <section>
-    <div class="container">
+  <section class="soft">
+    <div data-aos="fade-up">
       <h2>Il problema non è il traffico.</h2>
       <p>È cosa succede dopo il click.</p>
-
-      <ul class="list">
-        <li>La pagina non guida</li>
-        <li>I messaggi sono scollegati</li>
-        <li>Il funnel è carino, non progettato per vendere</li>
-      </ul>
-
-      <p><strong>Stai bruciando budget.</strong> Ogni giorno. Ogni click.</p>
+      <p>
+        Se il funnel non guida, se i messaggi non sono allineati,
+        se è stato progettato per piacere invece che per vendere,
+        <strong>ogni euro in ads lavora contro di te</strong>.
+      </p>
     </div>
   </section>
 
   <!-- SOLUZIONE -->
   <section>
-    <div class="container">
-      <h2>Non è da rifare. È da riparare.</h2>
+    <div data-aos="fade-up">
+      <h2>Non è da rifare.<br>È da riparare.</h2>
       <p>
-        Non facciamo siti.  
-        Non facciamo storytelling.  
+        Non facciamo siti.
+        Non facciamo storytelling.
         Non rifacciamo il brand.
       </p>
       <p>
-        Facciamo una cosa sola:  
+        Facciamo una cosa sola:
         <strong>aggiustiamo funnel che stanno già girando</strong>.
       </p>
+    </div>
+
+    <div class="image-wrap" data-aos="zoom-in">
+      <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1600" alt="Data & analysis">
     </div>
   </section>
 
   <!-- METODO -->
-  <section>
-    <div class="container">
+  <section class="soft">
+    <div data-aos="fade-up">
       <h2>Il Metodo Funnel Repair™</h2>
+    </div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>1. Analisi</h3>
-          <p>Smontiamo il funnel e individuiamo perdite e colli di bottiglia.</p>
-        </div>
-        <div class="card">
-          <h3>2. Ricostruzione</h3>
-          <p>Copy, struttura, CTA. Solo ciò che serve. Dove serve.</p>
-        </div>
-        <div class="card">
-          <h3>3. Testing</h3>
-          <p>Headline, sezioni e CTA testabili.</p>
-        </div>
-        <div class="card">
-          <h3>4. Ottimizzazione</h3>
-          <p>30 giorni di iterazioni basate sui dati.</p>
-        </div>
+    <div class="grid">
+      <div class="card" data-aos="fade-up">
+        <h3>Analisi</h3>
+        <p>Smontiamo funnel, ads e flussi per individuare perdite reali.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Ricostruzione</h3>
+        <p>Copy, struttura e CTA riallineati alla conversione.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Testing</h3>
+        <p>Varianti concrete, testabili, senza teoria creativa.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Ottimizzazione</h3>
+        <p>30 giorni di iterazioni guidate dai dati.</p>
       </div>
     </div>
   </section>
 
-  <!-- COSA OTTIENI -->
-  <section>
-    <div class="container">
-      <h2>Cosa ottieni</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Audit CRO Profondo</h3>
-          <p>Analisi funnel, ads, frizioni e priorità operative.</p>
-        </div>
-        <div class="card">
-          <h3>Funnel Rebuild</h3>
-          <p>Copy riscritto, struttura riallineata, flussi ottimizzati.</p>
-        </div>
-        <div class="card">
-          <h3>Varianti da testare</h3>
-          <p>Headline, sezioni e CTA alternative pronte.</p>
-        </div>
-        <div class="card">
-          <h3>30 giorni di ottimizzazione</h3>
-          <p>Niente creatività artistica. Solo ciò che funziona.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PREZZO -->
-  <section>
-    <div class="container">
-      <h2>Quanto costa perdere il 70% del traffico?</h2>
-      <p><strong>Valore percepito:</strong> 3.000 €+</p>
-      <p class="price">1.200 – 1.500 € una tantum</p>
-      <p>Nessun abbonamento. Nessuna dipendenza.</p>
-    </div>
-  </section>
-
-  <!-- GARANZIA -->
-  <section>
-    <div class="container">
-      <h2>Garanzia Funnel Repair™</h2>
-      <p>
-        Se il funnel è più chiaro.  
-        Se il messaggio è coerente.  
-        Se la struttura è oggettivamente migliore.
-      </p>
-      <p>
-        Continuiamo a lavorare gratis finché il sistema è solido.
-        Non garantiamo il mercato. Garantiamo il sistema.
-      </p>
-    </div>
-  </section>
-
-  <!-- CTA -->
+  <!-- CTA FINALE -->
   <section id="cta">
-    <div class="container">
+    <div data-aos="fade-up">
       <p class="quote">
-        L’unico servizio CRO pensato per essere inutile.<br>
+        L’unico servizio CRO pensato per essere inutile.
         Perché dopo non ti serviamo più.
       </p>
       <a href="#" class="cta">Richiedi la diagnosi gratuita</a>
@@ -314,8 +248,17 @@
   </section>
 
   <footer>
-    Funnel Repair™ · CRO basato su dati · Non su speranze
+    Funnel Repair™ · CRO per marketer che vogliono controllo, non promesse
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+  </script>
 
 </body>
 </html>
