@@ -1,141 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Funnel Repair™ — CRO e Copy che converte</title>
-  <meta name="description" content="Ripariamo funnel che stanno già spendendo in ads ma convertono male. Audit CRO, copy e struttura ottimizzati, test guidati. Nessuna promessa. Solo funnel che smettono di perdere soldi." />
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funnel Repair™ — CRO & Copy che converte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f1115;
-      --panel: #141821;
-      --ink: #e6e9ef;
-      --muted: #9aa3b2;
+      --bg: #0e0f11;
+      --text: #f1f1f1;
+      --muted: #8b8b8b;
       --accent: #4f8cff;
-      --accent-ink: #0b1220;
-      --line: #212635;
-      --maxw: 1100px;
-      --space: 24px;
+      --accent-dark: #3a6ddc;
+      --maxw: 960px;
     }
     * { box-sizing: border-box; }
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
       background: var(--bg);
-      color: var(--ink);
-      font-family: Inter, sans-serif;
+      border-bottom: 1px solid #1b1b1b;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
     }
-    a { color: inherit; text-decoration: none; }
-    p { color: var(--muted); line-height: 1.65; max-width: 70ch; }
-    .container { max-width: var(--maxw); margin: 0 auto; padding: var(--space); }
-    h1, h2, h3 { color: var(--ink); }
-    h1:hover, h2:hover { color: var(--accent); transition: color 0.4s ease; }
-    .btn {
-      display: inline-flex;
+    nav {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 12px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: .25s ease;
     }
-    .btn.primary {
-      background: var(--accent);
-      color: var(--accent-ink);
-      box-shadow: 0 0 15px rgba(79,140,255,.3);
+    nav a {
+      color: var(--text);
+      margin-left: 24px;
+      text-decoration: none;
+      font-weight: 600;
     }
-    .btn.primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(79,140,255,.45);
-    }
-    .btn.ghost {
-      border: 1px solid var(--line);
-      color: var(--ink);
-    }
-    .btn.ghost:hover {
-      border-color: var(--accent);
+    nav a:hover {
       color: var(--accent);
+      transition: color 0.3s ease;
+    }
+    main {
+      max-width: var(--maxw);
+      margin: 120px auto 60px;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 100px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+    section:nth-child(even) {
+      animation-delay: 0.3s;
+    }
+    section:nth-child(odd) {
+      animation-delay: 0.6s;
+    }
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    h1 { font-size: 3rem; margin-bottom: 1rem; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; }
+    h3 { font-size: 1.4rem; margin: 1.6rem 0 0.6rem; }
+    p { font-size: 1.125rem; margin-bottom: 1rem; }
+    ul { margin-left: 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    .btn {
+      display: inline-block;
+      background-color: var(--accent);
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background-color: var(--accent-dark);
+    }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
-  <main>
-    <section class="hero-wrap">
-      <div class="container">
-        <h1>Il tuo funnel sta sprecando soldi ogni giorno. E no, non è colpa delle ads.</h1>
-        <p>Hai traffico. Hai un funnel. Ma le conversioni non arrivano. Il problema non è il traffico. Il problema è dopo il click. E noi siamo qui per ripararlo.</p>
-        <a href="#" class="btn primary">Prenota la tua diagnosi gratuita</a>
-      </div>
-    </section>
 
-    <section>
-      <div class="container">
-        <h2>Perché continui a investire in traffico se il funnel non converte?</h2>
-        <p>Non serve un nuovo funnel, un nuovo logo, un nuovo "brand positioning". Serve sistemare ciò che già hai. Funnel Repair™ entra nel tuo funnel, analizza ciò che non funziona e lo ripara. Niente fuffa. Solo conversioni.</p>
-        <p>Il nostro lavoro è semplice: rendere profittevole ogni click che stai già pagando.</p>
-      </div>
-    </section>
+<header>
+  <nav>
+    <div><strong>Funnel Repair™</strong></div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">Chi siamo</a>
+      <a href="#services">Cosa facciamo</a>
+      <a href="#faq">FAQ</a>
+      <a href="#cta">Contattaci</a>
+    </div>
+  </nav>
+</header>
 
-    <section>
-      <div class="container">
-        <h2>Cosa facciamo (e cosa NON facciamo)</h2>
-        <h3>✅ Quello che facciamo</h3>
-        <ul>
-          <li>Analisi completa del funnel</li>
-          <li>Riscrittura copy, headline, CTA</li>
-          <li>Ottimizzazione UX e struttura pagina</li>
-          <li>Creazione di varianti testabili</li>
-          <li>30 giorni di ottimizzazione guidata post-delivery</li>
-        </ul>
-        <h3>❌ Quello che NON facciamo</h3>
-        <ul>
-          <li>Gestione ads</li>
-          <li>Restyling grafici</li>
-          <li>Branding</li>
-          <li>Promesse di ROAS irreali</li>
-          <li>Lavorare con chi non ha traffico attivo</li>
-        </ul>
-      </div>
-    </section>
+<main>
+  <section id="home">
+    <h1>Il tuo funnel sta sprecando soldi. E no, non è colpa delle ads.</h1>
+    <p>Hai traffico. Hai un funnel. Ma le conversioni non arrivano. Il problema non è il traffico. Il problema è dopo il click. E noi siamo qui per ripararlo.</p>
+    <a href="#cta" class="btn">Prenota la tua diagnosi gratuita</a>
+  </section>
 
-    <section>
-      <div class="container">
-        <h2>Il metodo Funnel Repair™</h2>
-        <h3>1. Audit & Diagnosi</h3>
-        <p>Smontiamo il funnel, analizziamo il comportamento utente, leggiamo i tuoi messaggi come li leggerebbe un prospect. E capiamo dove perdi soldi.</p>
-        <h3>2. Rebuild Operativo</h3>
-        <p>Riscriviamo i pezzi critici. Non tutto. Solo ciò che non funziona. Copy, struttura, CTA. Tutto pensato per una cosa: farti guadagnare di più senza aumentare il traffico.</p>
-        <h3>3. Testing & Ottimizzazione</h3>
-        <p>Per 30 giorni monitoriamo, correggiamo, ottimizziamo. Non ti lasciamo con un file. Ti lasciamo con un funnel che performa.</p>
-      </div>
-    </section>
+  <section id="about">
+    <h2>Chi siamo</h2>
+    <p>Siamo esperti in CRO e copywriting conversion focused. Non vendiamo design, non vendiamo brand. Ripariamo funnel. Punto.</p>
+  </section>
 
-    <section>
-      <div class="container">
-        <h2>FAQ Brutali</h2>
-        <h3>Funziona per tutti?</h3>
-        <p>No. Funziona solo per aziende con traffico pagato e funnel attivo. Se non spendi in advertising, non è per te.</p>
-        <h3>Cosa ricevo esattamente?</h3>
-        <p>Audit, funnel ricostruito (copy + struttura), varianti testabili, ottimizzazione 30 giorni, report finale.</p>
-        <h3>Quanto costa?</h3>
-        <p>Tra 1.200€ e 1.500€ una tantum. Nessun canone. Nessuna catena.</p>
-        <h3>Posso parlarne con qualcuno prima?</h3>
-        <p>Certo. Ma non perdiamo tempo a convincerti. Se senti che il tuo funnel sta sprecando soldi, lo sai già.</p>
-      </div>
-    </section>
+  <section id="services">
+    <h2>Cosa facciamo (e cosa non facciamo)</h2>
+    <h3>✅ Quello che facciamo</h3>
+    <ul>
+      <li>Audit completo del funnel</li>
+      <li>Riscrittura di copy, CTA, messaggi e struttura</li>
+      <li>Creazione di varianti testabili</li>
+      <li>30 giorni di ottimizzazione reale</li>
+    </ul>
+    <h3>❌ Quello che non facciamo</h3>
+    <ul>
+      <li>Gestione campagne</li>
+      <li>Rebranding inutile</li>
+      <li>Promesse ridicole</li>
+      <li>Lavorare con chi non ha traffico</li>
+    </ul>
+  </section>
 
-    <section>
-      <div class="container">
-        <h2>Ogni click sprecato è un euro buttato.</h2>
-        <p>Funnel Repair™ è per chi vuole smettere di buttare soldi nel traffico e iniziare a convertirlo davvero.</p>
-        <a href="#" class="btn primary">Prenota la tua diagnosi gratuita</a>
-      </div>
-    </section>
-  </main>
+  <section>
+    <h2>Il nostro metodo</h2>
+    <h3>1. Audit</h3>
+    <p>Analisi completa del tuo funnel, come se fossimo utenti. Freddi. Spietati.</p>
+    <h3>2. Rebuild</h3>
+    <p>Ricostruiamo solo ciò che serve: copy, struttura, flusso.</p>
+    <h3>3. Ottimizzazione</h3>
+    <p>30 giorni di correzioni, test, aggiustamenti. Non finisce alla consegna.</p>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <h3>Funziona per tutti?</h3>
+    <p>No. Se non stai già pagando traffico, non è per te.</p>
+    <h3>Cosa ricevo?</h3>
+    <p>Audit, funnel ricostruito, varianti testabili, supporto per 30 giorni.</p>
+    <h3>Quanto costa?</h3>
+    <p>Tra 1.200€ e 1.500€, una tantum. Fine.</p>
+    <h3>Posso parlarne con voi?</h3>
+    <p>Solo se sei già consapevole di avere un problema. Noi non convinciamo nessuno.</p>
+  </section>
+
+  <section id="cta">
+    <h2>Ogni click sprecato è un euro buttato.</h2>
+    <p>Funnel Repair™ è per chi vuole smettere di perdere soldi e iniziare a convertire. Seriamente.</p>
+    <a href="#" class="btn">Prenota la tua diagnosi gratuita</a>
+  </section>
+</main>
+
 </body>
 </html>
