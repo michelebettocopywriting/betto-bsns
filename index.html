@@ -3,226 +3,139 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Betto Copywriting — Copywriter Strategico</title>
-  <meta name="description" content="Copywriter strategico: strategie, processi e copy che convertono. Sales page, landing page, email, VSL e ads. Prenota una call di analisi gratuita." />
+  <title>Funnel Repair™ — CRO e Copy che converte</title>
+  <meta name="description" content="Ripariamo funnel che stanno già spendendo in ads ma convertono male. Audit CRO, copy e struttura ottimizzati, test guidati. Nessuna promessa. Solo funnel che smettono di perdere soldi." />
   <link rel="icon" type="image/png" href="logo.png">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      --bg:#0f1115;
-      --panel:#141821;
-      --ink:#e6e9ef;
-      --muted:#9aa3b2;
-      --accent:#4f8cff;
-      --accent-ink:#0b1220;
-      --line:#212635;
-      --maxw:1100px;
-      --space:24px;
+    :root {
+      --bg: #0f1115;
+      --panel: #141821;
+      --ink: #e6e9ef;
+      --muted: #9aa3b2;
+      --accent: #4f8cff;
+      --accent-ink: #0b1220;
+      --line: #212635;
+      --maxw: 1100px;
+      --space: 24px;
     }
-
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    p{color:var(--muted);line-height:1.65;max-width:70ch}
-    .container{max-width:var(--maxw);margin:0 auto;padding:var(--space)}
-
-    /* Header */
-    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(15,17,21,.92),rgba(15,17,21,.78));backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .brand img{height:28px;width:auto}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid transparent;transition:.25s ease}
-    .btn.primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 0 15px rgba(79,140,255,.3)}
-    .btn.primary:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(79,140,255,.45)}
-    .btn.ghost{border:1px solid var(--line);color:var(--ink)}
-    .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
-    .cta-bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-
-    /* Sections */
-    section{padding:80px 0;border-top:1px solid var(--line)}
-    h1{font-size:clamp(36px,6vw,58px);line-height:1.05;margin:0 0 14px}
-    h2{font-size:clamp(28px,4.2vw,40px);margin:0 0 14px}
-    h3{font-size:clamp(18px,2.7vw,22px);margin:0 0 10px;color:var(--ink)}
-
-    .grid-2{display:grid;gap:32px}
-    @media(min-width:980px){.grid-2{grid-template-columns:1.2fr .8fr}}
-
-    /* HERO SECTION */
-    .hero-wrap{position:relative;overflow:hidden;background:linear-gradient(145deg,#10121a 0%,#12141f 35%,#0e1320 100%)}
-    .hero-wrap::before{
-      content:"";position:absolute;inset:0;
-      background:radial-gradient(circle at 30% 30%, rgba(79,140,255,.12), transparent 70%),
-                 radial-gradient(circle at 70% 70%, rgba(79,140,255,.07), transparent 60%);
-      animation:floatbg 12s ease-in-out infinite alternate;
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, sans-serif;
     }
-    @keyframes floatbg {
-      0%{transform:translate(0,0)}
-      50%{transform:translate(-10px,10px)}
-      100%{transform:translate(0,0)}
+    a { color: inherit; text-decoration: none; }
+    p { color: var(--muted); line-height: 1.65; max-width: 70ch; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: var(--space); }
+    h1, h2, h3 { color: var(--ink); }
+    h1:hover, h2:hover { color: var(--accent); transition: color 0.4s ease; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: .25s ease;
     }
-    .hero-stack{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;max-width:780px}
-    .glow-title{text-shadow:0 0 18px rgba(79,140,255,.3)}
-    .glow-cta{animation:pulse 3s ease-in-out infinite}
-    @keyframes pulse {0%,100%{box-shadow:0 0 20px rgba(79,140,255,.25)}50%{box-shadow:0 0 30px rgba(79,140,255,.45)}}
-
-    /* About portrait */
-    .portrait-frame{padding:2px;border-radius:18px;background:linear-gradient(135deg, rgba(79,140,255,.4), rgba(79,140,255,0));display:inline-block}
-
-    /* Cards servizi */
-    .cards{display:grid;gap:16px;margin-top:18px}
-    @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s ease;display:flex;flex-direction:column;gap:8px}
-    .card:hover{transform:translateY(-4px);border-color:var(--accent);background:linear-gradient(180deg, rgba(79,140,255,.08), transparent 60%), var(--panel)}
-
-    /* Dopamina visiva sui titoli */
-    h2, h1:hover {color:var(--accent);transition:color .4s ease}
-
-    /* Footer */
-    footer{padding:48px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-
-    /* Responsive */
-    @media(max-width:720px){.grid-2{grid-template-columns:1fr}}
+    .btn.primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+      box-shadow: 0 0 15px rgba(79,140,255,.3);
+    }
+    .btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(79,140,255,.45);
+    }
+    .btn.ghost {
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .btn.ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="logo.png" alt="Betto Copywriting logo">
-        <span>Betto Copywriting</span>
-      </div>
-      <nav style="display:flex;gap:18px;align-items:center">
-        <a href="#about">About</a>
-        <a href="#servizi">Servizi</a>
-        <a href="#obiezioni">Obiezioni</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contatti" class="btn primary">Prenota una call</a>
-      </nav>
-    </div>
-  </header>
-
   <main>
-    <!-- HOME -->
-    <section id="home" class="hero-wrap">
+    <section class="hero-wrap">
       <div class="container">
-        <div class="hero-stack">
-          <h1 class="glow-title">Sviluppo strategie che vendono. Il copy è solo la punta dell’iceberg.</h1>
-          <h3>Non mi limito a scrivere testi: costruisco strategie di comunicazione che usano il copy come leva per vendere di più, con meno sprechi.</h3>
-          <p><strong>Le mie strategie collegano creatività e analisi</strong> per creare un impatto concreto: più conversioni, meno spreco di budget e una comunicazione che funziona davvero.</p>
-          <div class="cta-bar">
-            <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" target="_blank" rel="noopener" class="btn primary glow-cta">Prenota una call gratuita di analisi</a>
-            <a href="#servizi" class="btn ghost">Scopri come lavoro →</a>
-          </div>
-          <p>Il copy è cambiato. Oggi non serve solo saper scrivere: serve capire come il processo di vendita si muove, come il contenuto e la strategia lavorano insieme.<br>
-          Io sono un <strong>copywriter strategico</strong>: supervisiono, gestisco e coordino la comunicazione con una logica di performance.<br>
-          L’AI può generare parole. Io faccio in modo che quelle parole portino <strong>risultati veri</strong>.</p>
-        </div>
+        <h1>Il tuo funnel sta sprecando soldi ogni giorno. E no, non è colpa delle ads.</h1>
+        <p>Hai traffico. Hai un funnel. Ma le conversioni non arrivano. Il problema non è il traffico. Il problema è dopo il click. E noi siamo qui per ripararlo.</p>
+        <a href="#" class="btn primary">Prenota la tua diagnosi gratuita</a>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container grid-2" style="align-items:center">
-        <div>
-          <h2>Dal copy alla strategia: l’evoluzione naturale di chi vuole vendere davvero.</h2>
-          <p>Mi chiamo <strong>Betto Michele</strong> e sono un copywriter strategico.<br>
-          Negli anni ho capito che scrivere non basta. Il copy è solo una parte di un sistema più grande: <strong>strategie, processi, funnel, contenuti e persone.</strong><br>
-          Oggi aiuto aziende e professionisti a trasformare la loro comunicazione in un motore di conversione.</p>
-          <p>Analizzo, progetto e ottimizzo tutto il processo di vendita, dal messaggio alla struttura che lo sostiene.<br>
-          Scrivo, sì. Ma soprattutto <strong>penso come un marketer e ragiono come un venditore.</strong></p>
-          <a href="#servizi" class="btn primary">Scopri il mio approccio →</a>
-        </div>
-        <div class="portrait-frame">
-          <img src="portrait.jpg" alt="Michele Betto, Copywriter Strategico" loading="lazy">
-        </div>
+    <section>
+      <div class="container">
+        <h2>Perché continui a investire in traffico se il funnel non converte?</h2>
+        <p>Non serve un nuovo funnel, un nuovo logo, un nuovo "brand positioning". Serve sistemare ciò che già hai. Funnel Repair™ entra nel tuo funnel, analizza ciò che non funziona e lo ripara. Niente fuffa. Solo conversioni.</p>
+        <p>Il nostro lavoro è semplice: rendere profittevole ogni click che stai già pagando.</p>
       </div>
     </section>
 
-    <!-- SERVIZI -->
-    <section id="servizi">
+    <section>
       <div class="container">
-        <h2>Non vendo testi. Progetto strategie di vendita basate sulle parole.</h2>
-        <h4>Ogni progetto nasce da un’analisi: cosa blocca le tue conversioni e dove la comunicazione si inceppa.</h4>
-        <div class="cards">
-          <article class="card">
-            <h3>Strategia di comunicazione e supervisione dei contenuti</h3>
-            <p>Definisco il messaggio e coordino la produzione (AI + team marketing) per coerenza e performance.</p>
-            <a href="#contatti" class="m-cta">Capisci come funziona →</a>
-          </article>
-          <article class="card">
-            <h3>Copywriting strategico</h3>
-            <p>Scrivo copy ad alto impatto per <em>sales page, landing page, email marketing, VSL e ads.</em></p>
-            <a href="#contatti" class="m-cta">Parliamone →</a>
-          </article>
-          <article class="card">
-            <h3>Ottimizzazione funnel e customer journey</h3>
-            <p>Studio i punti critici, correggo la direzione e massimizzo la resa di ogni messaggio.</p>
-            <a href="#contatti" class="m-cta">Ottimizza il percorso →</a>
-          </article>
-        </div>
+        <h2>Cosa facciamo (e cosa NON facciamo)</h2>
+        <h3>✅ Quello che facciamo</h3>
+        <ul>
+          <li>Analisi completa del funnel</li>
+          <li>Riscrittura copy, headline, CTA</li>
+          <li>Ottimizzazione UX e struttura pagina</li>
+          <li>Creazione di varianti testabili</li>
+          <li>30 giorni di ottimizzazione guidata post-delivery</li>
+        </ul>
+        <h3>❌ Quello che NON facciamo</h3>
+        <ul>
+          <li>Gestione ads</li>
+          <li>Restyling grafici</li>
+          <li>Branding</li>
+          <li>Promesse di ROAS irreali</li>
+          <li>Lavorare con chi non ha traffico attivo</li>
+        </ul>
       </div>
     </section>
 
-    <!-- OBIEZIONI -->
-    <section id="obiezioni">
+    <section>
       <div class="container">
-        <h2>Prima che tu lo pensi…</h2>
-        <div class="faq">
-          <details open>
-            <summary>«Non ho tempo per seguire un progetto di copy completo.»</summary>
-            <p><strong>Risposta:</strong> Gestisco io la parte strategica e coordinamento. Tu devi solo approvare le scelte chiave.</p>
-            <p><strong>Beneficio:</strong> Risparmi tempo e mantieni il controllo, senza bloccare il flusso operativo.</p>
-          </details>
-          <details>
-            <summary>«Già uso l’AI per scrivere i testi, perché dovrei pagare un copywriter?»</summary>
-            <p><strong>Risposta:</strong> L’AI scrive, ma non pensa come un venditore. Io progetto la logica dietro ogni messaggio, così il contenuto prodotto dall’AI converte davvero.</p>
-            <p><strong>Beneficio:</strong> Meno parole, più risultati. L’AI diventa un asset, non un sostituto improvvisato.</p>
-          </details>
-          <details>
-            <summary>«Il mio team marketing può occuparsene.»</summary>
-            <p><strong>Risposta:</strong> Perfetto. Io collaboro con i team interni per ottimizzare il processo e migliorare ciò che già funziona.</p>
-            <p><strong>Beneficio:</strong> Niente rivoluzioni: solo strategie più efficaci e coordinate.</p>
-          </details>
-        </div>
+        <h2>Il metodo Funnel Repair™</h2>
+        <h3>1. Audit & Diagnosi</h3>
+        <p>Smontiamo il funnel, analizziamo il comportamento utente, leggiamo i tuoi messaggi come li leggerebbe un prospect. E capiamo dove perdi soldi.</p>
+        <h3>2. Rebuild Operativo</h3>
+        <p>Riscriviamo i pezzi critici. Non tutto. Solo ciò che non funziona. Copy, struttura, CTA. Tutto pensato per una cosa: farti guadagnare di più senza aumentare il traffico.</p>
+        <h3>3. Testing & Ottimizzazione</h3>
+        <p>Per 30 giorni monitoriamo, correggiamo, ottimizziamo. Non ti lasciamo con un file. Ti lasciamo con un funnel che performa.</p>
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio">
+    <section>
       <div class="container">
-        <h2>Risultati, non teorie.</h2>
-        <p>Sto raccogliendo alcuni case study reali: ottimizzazioni di funnel, rebranding e strategie di copywriting che hanno generato impatti misurabili su traffico e vendite.<br>
-        Presto saranno pubblicati qui.</p>
+        <h2>FAQ Brutali</h2>
+        <h3>Funziona per tutti?</h3>
+        <p>No. Funziona solo per aziende con traffico pagato e funnel attivo. Se non spendi in advertising, non è per te.</p>
+        <h3>Cosa ricevo esattamente?</h3>
+        <p>Audit, funnel ricostruito (copy + struttura), varianti testabili, ottimizzazione 30 giorni, report finale.</p>
+        <h3>Quanto costa?</h3>
+        <p>Tra 1.200€ e 1.500€ una tantum. Nessun canone. Nessuna catena.</p>
+        <h3>Posso parlarne con qualcuno prima?</h3>
+        <p>Certo. Ma non perdiamo tempo a convincerti. Se senti che il tuo funnel sta sprecando soldi, lo sai già.</p>
       </div>
     </section>
 
-    <!-- CONTATTI -->
-    <section id="contatti">
+    <section>
       <div class="container">
-        <h2>Parliamone.</h2>
-        <p>Se vuoi migliorare le performance del tuo marketing, scrivimi.<br>
-        Analizzerò la tua strategia e ti dirò con trasparenza se (e come) posso aiutarti.<br>
-        Niente form, solo una conversazione utile.</p>
-        <div class="cta-bar">
-          <a href="https://calendly.com/bettomichele07/discovery-o-strategy-call" class="btn primary" target="_blank">Prenota una call gratuita →</a>
-          <a href="https://www.instagram.com/betto_bsns/" target="_blank" class="btn ghost">Scrivimi su Instagram</a>
-        </div>
+        <h2>Ogni click sprecato è un euro buttato.</h2>
+        <p>Funnel Repair™ è per chi vuole smettere di buttare soldi nel traffico e iniziare a convertirlo davvero.</p>
+        <a href="#" class="btn primary">Prenota la tua diagnosi gratuita</a>
       </div>
     </section>
   </main>
-
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
-      <span>© <script>document.write(new Date().getFullYear())</script> Betto Copywriting</span>
-      <span>Contatti: <a href="mailto:michelebetto.copy@gmail.com">michelebetto.copy@gmail.com</a> · <a href="tel:+393482436986">+39 348 243 6986</a> · <a href="https://www.instagram.com/betto_bsns/">@betto_bsns</a></span>
-    </div>
-  </footer>
 </body>
 </html>
